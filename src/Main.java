@@ -12,7 +12,6 @@ public class Main {
         Scanner m= new Scanner(System.in);
         String x = m.nextLine();
 
-
        Tokenizer t= new Tokenizer(x);
         t.scan();
         for (Token token : t.returnTokens ){

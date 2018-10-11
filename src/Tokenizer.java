@@ -124,8 +124,13 @@ private void intiKeyWords (){
               int end_string=  source.indexOf('"',i+1)+1;
               Token string_token= new Token("String",source.substring(i,end_string));
                 returnTokens.add(string_token);
+                if (end_string == 0) {
+                    throw new Error("the double quote didn't closed");
+                } else {
                 i=end_string;
-                start_po=end_string;
+
+                    start_po = end_string;
+                }
             }
 
             else {end_po=i+1;}
@@ -144,7 +149,7 @@ private void intiKeyWords (){
         if(Character.isDigit(tokenString.charAt(0))){
             for (int i=0;i<tokenString.length();i++ ) {
                 if(!Character.isDigit(tokenString.charAt(i))){
-                    throw new Error();
+                    throw new Error("type error can't be a number or variable name");
                 }
             }
          return new Token("constant",tokenString);
